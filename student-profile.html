@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-center font-sans">
+
+  <!-- Top Navigation -->
+  <div class="flex items-center justify-between p-4">
+    <button onclick="toggleMenu()">
+      <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <h1 class="text-lg font-semibold">Student Profile</h1>
+    <div class="w-6"></div> <!-- Placeholder for spacing -->
+  </div>
+
+  <!-- Profile Image -->
+  <div class="flex justify-center">
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="w-24 h-24 rounded-full object-cover">
+  </div>
+
+  <!-- Profile Info -->
+  <div class="px-6 mt-6 space-y-4">
+    <div class="border rounded-lg py-2 px-4">
+      <p class="text-green-600 text-xs font-bold text-left">USERNAME</p>
+      <p class="text-black text-sm text-left">ADMIN1</p>
+    </div>
+    <div class="border rounded-lg py-2 px-4">
+      <p class="text-green-600 text-xs font-bold text-left">STUDENT ID</p>
+      <p class="text-black text-sm text-left">232112</p>
+    </div>
+    <div class="border rounded-lg py-2 px-4">
+      <p class="text-green-600 text-xs font-bold text-left">EMAIL</p>
+      <p class="text-black text-sm text-left">admin@gmail.com</p>
+    </div>
+  </div>
+
+  <!-- Change Password -->
+  <div class="text-right px-6 mt-2">
+    <a href="change-password.html" class="text-sm text-black underline hover:text-green-500">Change Password</a>
+  </div>
+
+  <!-- Logout Button -->
+  <div class="fixed bottom-4 w-full px-6">
+    <button onclick="logout()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">
+      LOG OUT
+    </button>
+  </div>
+
+  <script>
+    
+    function toggleMenu() {
+      window.location.href = "dashboard.html";
+      alert("Going to Dashboard");
+    }
+
+    function logout() {
+        window.location.href = "index.html";
+      alert("You have been logged out.");
+      // You can add redirect here: window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

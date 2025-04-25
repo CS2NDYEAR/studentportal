@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma,Verdana, sans-serif;
+      background-color: #f8f8f8;
+      color: #222;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .label {
+      color: #00c853;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .input-box {
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .register-button {
+      margin-top: 10px;
+      padding: 14px;
+      background-color: #00c853;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .register-button:hover {
+      background-color: #00b349;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #00c853;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 30px 20px;
+      }
+
+      .header h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Register</h1>
+    </div>
+
+    <form id="registerForm">
+      <div class="form-group">
+        <label class="label" for="username">USERNAME</label>
+        <input type="text" class="input-box" id="username" name="username" placeholder="Enter username" >
+      </div>
+
+      <div class="form-group">
+        <label class="label" for="password">PASSWORD</label>
+        <input type="password" class="input-box" id="password" name="password" placeholder="Enter password" >
+      </div>
+
+      <div class="form-group">
+        <label class="label" for="email">EMAIL ADDRESS</label>
+        <input type="email" class="input-box" id="email" name="email" placeholder="Enter email" >
+      </div>
+
+      <div class="form-group">
+        <label class="label" for="contact">CONTACT NUMBER</label>
+        <input type="tel" class="input-box" id="contact" name="contact" placeholder="Enter contact number" >
+      </div>
+
+      <button type="submit" class="register-button">REGISTER</button>
+    </form>
+
+    <div class="footer">
+      Already have an account? <a href="index.html">Log in</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Registration successful!');
+      // Add API call or form logic here
+    });
+  </script>
+
+</body>
+</html>

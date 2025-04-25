@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visayanian Student Portal</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('/bg.png') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 2s ease;
+    }
+
+    #loader-wrapper.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #00c853;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .notice-container {
+      margin-top: 20px;
+      overflow: hidden;
+      background-color: #ffeb3b;
+      border: 2px solid #000;
+      border-radius: 3px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .notice-track {
+      display: flex;
+      white-space: nowrap;
+      animation: scroll-left 20s linear infinite;
+    }
+
+    .notice-text {
+      font-weight: bold;
+      font-size: 1rem;
+      color: #000;
+      padding-right: 100%;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .container {
+      padding: 60px 20px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-top: 20px;
+      color: #f3f3f3;
+    }
+
+    .subtitle {
+      font-family: 'Jaro', sans-serif;
+      font-size: 3rem;
+      margin: 10px 0 20px;
+      color: #00c853;
+    }
+
+    .cap {
+      width: 300px;
+      margin: 10px 0;
+    }
+
+    .info {
+      margin-top: 20px;
+    }
+
+    .info h4 {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .info p {
+      font-size: 0.9rem;
+      color: #ffffff;
+    }
+
+    .dots {
+      margin: 20px auto;
+    }
+
+    .dots span {
+      height: 8px;
+      width: 8px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 0 3px;
+    }
+
+    .dots .active {
+      background-color: #00c853;
+    }
+
+    .btn {
+      background-color: #00c853;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #019d42;
+    }
+
+    .login-section {
+      display: none;
+      padding: 40px 20px;
+    }
+
+    .input-box {
+      margin: 15px auto;
+      width: 80%;
+      text-align: left;
+      position: relative;
+    }
+
+    .input-box label {
+      font-weight: bold;
+      color: #00c853;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ffffff;
+      border-radius: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+      cursor: pointer;
+      color: #000;
+    }
+
+    .forgot {
+      text-align: right;
+      margin: 10px auto;
+      width: 80%;
+      font-size: 0.85rem;
+      color: #ffffff;
+    }
+
+    .forgot a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .forgot a:hover {
+      color: #00c853;
+      text-decoration: underline;
+    }
+
+    .register {
+      font-size: 0.85rem;
+      margin-top: 20px;
+      color: #ffffff;
+    }
+
+    .register a {
+      color: #00c853;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="notice-container">
+    <div class="notice-track">
+      <span class="notice-text">
+        ⚠️ THIS WEBPAGE IS FOR ACADEMIC PURPOSES ONLY AND NOT THE OFFICIAL STUDENT PORTAL OF THE UNIVERSITY MENTIONED. ⚠️ THIS WEBPAGE IS FOR ACADEMIC PURPOSES ONLY AND NOT THE OFFICIAL STUDENT PORTAL OF THE UNIVERSITY MENTIONED.
+      </span>
+    </div>
+  </div>
+
+  <div id="loader-wrapper">
+    <div class="loader"></div>
+  </div>
+
+  <div class="container" id="welcomePage">
+    <div class="title">WELCOME TO</div>
+    <div class="subtitle">VISAYANIAN STUDENT PORTAL</div>
+    <img src="cap.png" alt="Graduation Cap" class="cap">
+    <div class="dots">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="info">
+      <h4>Your lifelong partner in shaping your future</h4>
+      <p>The University of the Visayas offers a wide array of empowering courses for success in today`s dynamic world.</p>
+    </div>
+    <button class="btn" onclick="showLogin()">GET STARTED</button>
+  </div>
+
+  <div class="login-section" id="loginPage">
+    <h2>Log In</h2>
+    <div class="input-box">
+      <label for="username">USERNAME</label>
+      <input type="text" id="username" placeholder="username">
+    </div>
+    <div class="input-box">
+      <label for="password">PASSWORD</label>
+      <input type="password" id="password" placeholder="password">
+      <i class="fas fa-eye-slash toggle-password" onclick="togglePasswordVisibility()" id="togglePassword"></i>
+    </div>
+    <div class="forgot">
+      <a href="forgot.html">Forgot password?</a>
+    </div>
+    <button class="btn" onclick="login()">LOGIN</button>
+    <div class="register">
+      Don't have an account? <a href="register.html">Click to Register</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.getElementById("loader-wrapper").classList.add("fade-out");
+      }, 1000);
+    });
+
+    setTimeout(() => {
+      const loader = document.getElementById("loader-wrapper");
+      if (!loader.classList.contains("fade-out")) {
+        loader.classList.add("fade-out");
+      }
+    }, 5000);
+
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const icon = document.getElementById('togglePassword');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
+      } else {
+        passwordInput.type = 'password';
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
+      }
+    }
+
+    function showLogin() {
+      document.getElementById('welcomePage').style.display = 'none';
+      document.getElementById('loginPage').style.display = 'block';
+    }
+
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'admin1' && password === 'admin1') {
+        alert('Login Successful!');
+        window.location.href = "dashboard.html";
+      } else {
+        alert('Invalid credentials');
+      }
+    }
+  </script>
+</body>
+</html>
